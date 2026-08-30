@@ -1,0 +1,285 @@
+/* Uswa-AI design system — locked tokens. Do not alter values without explicit project-level approval. */
+:root {
+  --bg: oklch(97% 0.005 240);
+  --surface: oklch(99% 0.003 240);
+  --ink: oklch(24% 0.03 235);
+  --muted: oklch(48% 0.02 235);
+  --border: oklch(87% 0.012 235);
+  --dominant: oklch(38% 0.07 200);
+  --accent: oklch(62% 0.17 35);
+  --success: oklch(53% 0.12 155);
+  --warning: oklch(68% 0.14 85);
+  --error: oklch(55% 0.19 25);
+
+  --fd: 'Archivo', sans-serif;
+  --fb: 'Work Sans', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 150ms;
+  --normal: 260ms;
+
+  --radius-control: 6px;
+  --radius-surface: 10px;
+  --radius-modal: 14px;
+  --shadow-surface: 0 1px 2px oklch(0% 0 0 / 0.04);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: oklch(94% 0.004 240);
+  font-family: var(--fb);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+textarea,
+input {
+  font-family: var(--fb);
+}
+
+textarea::placeholder {
+  color: var(--muted);
+}
+
+ul {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fd);
+}
+
+@keyframes uswa-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.uswa-spinner {
+  animation: uswa-spin 800ms linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uswa-spinner {
+    animation: none;
+  }
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-control);
+  padding: 10px 16px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease),
+    border-color var(--fast) var(--ease);
+  line-height: 1.3;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--dominant);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--ink);
+}
+.btn-outline:hover:not(:disabled) {
+  background: color-mix(in oklch, var(--ink) 6%, var(--bg));
+}
+
+/* Same resting look as .btn-outline, but genuinely inert — no hover/press feedback. */
+.btn-static {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--ink);
+  cursor: default;
+}
+
+.btn-filled-dominant {
+  background: var(--dominant);
+  color: var(--bg);
+  border-color: transparent;
+}
+.btn-filled-dominant:hover:not(:disabled) {
+  background: color-mix(in oklch, var(--dominant) 88%, black);
+}
+.btn-filled-dominant:active:not(:disabled) {
+  background: color-mix(in oklch, var(--dominant) 78%, black);
+}
+
+.btn-filled-error {
+  background: var(--error);
+  color: var(--bg);
+  border-color: transparent;
+}
+.btn-filled-error:hover:not(:disabled) {
+  background: color-mix(in oklch, var(--error) 85%, black);
+}
+
+.btn-text-tertiary {
+  background: transparent;
+  border-color: transparent;
+  color: var(--muted);
+  font-weight: 500;
+}
+.btn-text-tertiary:hover:not(:disabled),
+.btn-text-tertiary:active:not(:disabled) {
+  color: var(--ink);
+}
+
+/* ---------- Radio rows (consent, final quick questions) ---------- */
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease);
+}
+
+.radio-row:focus-visible {
+  outline: 2px solid var(--dominant);
+  outline-offset: 2px;
+}
+
+.radio-row[aria-checked='true'] {
+  border-color: var(--dominant);
+  background: color-mix(in oklch, var(--dominant) 8%, var(--bg));
+}
+
+.radio-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-row[aria-checked='true'] .radio-dot {
+  border-color: var(--dominant);
+}
+
+.radio-dot-fill {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dominant);
+}
+
+/* ---------- Likert scale (Q1–Q13, 7-point) ---------- */
+
+.likert-group {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  overflow: hidden;
+}
+
+.likert-group.has-error {
+  border-color: var(--error);
+}
+
+.likert-option {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 44px;
+  border: none;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--fm);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+@media (max-width: 420px) {
+  .likert-option {
+    font-size: 13px;
+  }
+}
+
+.likert-option:last-child {
+  border-right: none;
+}
+
+.likert-option:focus-visible {
+  outline: 2px solid var(--dominant);
+  outline-offset: -2px;
+}
+
+.likert-option[aria-checked='true'] {
+  background: var(--dominant);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+/* ---------- Text input ---------- */
+
+.text-area {
+  width: 100%;
+  min-height: 96px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  padding: 12px;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.text-area:focus-visible {
+  outline: 2px solid var(--dominant);
+  outline-offset: 2px;
+}
+
+/* ---------- Section label ---------- */
+
+.section-label-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
