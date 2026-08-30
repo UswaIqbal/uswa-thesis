@@ -1,7 +1,9 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
-const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+// Trim: pasted GitHub Actions secrets often carry a trailing newline/space, which
+// would corrupt the URL or key.
+const url = (import.meta.env.VITE_SUPABASE_URL as string | undefined)?.trim();
+const anonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined)?.trim();
 
 /** True when both Vite env vars are present — i.e. real Supabase persistence is configured. */
 export const hasSupabaseConfig = Boolean(url && anonKey);

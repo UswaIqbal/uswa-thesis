@@ -50,6 +50,9 @@ export function ConsentScreen() {
       {persistError && !startingSession && (
         <div role="alert" style={{ fontSize: 13, color: 'var(--error)', lineHeight: 1.6, margin: '0 0 16px' }}>
           We couldn&rsquo;t start a secure session. Please complete the verification and try again.
+          <span style={{ display: 'block', marginTop: 6, fontSize: 12, color: 'var(--muted)' }}>
+            ({persistError})
+          </span>
         </div>
       )}
 

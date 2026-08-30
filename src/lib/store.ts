@@ -92,7 +92,16 @@ class SupabaseStore implements StudyDataStore {
       const { error } = await client.auth.signInAnonymously(
         captchaToken ? { options: { captchaToken } } : undefined,
       );
-      if (error) throw new Error(`Could not start a secure session: ${error.message}`);
+      if (error) {
+        // Surface the real GoTrue error (status + code + message) for diagnosis.
+        console.error('[study] anonymous sign-in failed', {
+          status: error.status,
+          code: error.code,
+          message: error.message,
+          captchaTokenPresent: Boolean(captchaToken),
+        });
+        throw new Error(`Could not start a secure session: ${error.message}`);
+      }
     })();
     // On any failure, clear the in-flight promise so a later call can retry with
     // a fresh captcha token.

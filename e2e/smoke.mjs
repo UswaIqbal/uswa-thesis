@@ -23,6 +23,15 @@ function startDevServer() {
   return spawn(process.execPath, [viteBin, '--port', String(PORT), '--strictPort'], {
     cwd: process.cwd(),
     stdio: ['ignore', 'pipe', 'pipe'],
+    // Force the in-memory dev store and skip the captcha, regardless of any
+    // .env.local the developer keeps for manual testing. process.env wins over
+    // .env files in Vite.
+    env: {
+      ...process.env,
+      VITE_SUPABASE_URL: '',
+      VITE_SUPABASE_ANON_KEY: '',
+      VITE_HCAPTCHA_SITE_KEY: '',
+    },
   });
 }
 
