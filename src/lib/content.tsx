@@ -68,7 +68,7 @@ export const FINAL_QUICK_2_OPTIONS: { value: FinalQuick2Answer; label: string }[
 export const FINAL_QUICK_HEADING = 'A few final quick questions';
 
 export const STUDY_INTRO_PARAGRAPHS = [
-  'You are subscribed to a hypothetical AI chatbot called Uswa-AI. You currently have the Uswa-AI Pro subscription.',
+  'You are subscribed to a hypothetical AI chatbot called Pebble. You currently have the Pebble Pro subscription.',
   'Imagine that over the past few months you have mostly used it for occasional, simple questions, and you haven\'t really made use of most of the Pro features. Lately you have started wondering whether the subscription is worth its monthly price for the way you actually use it.',
   'You are now reviewing your subscription and deciding whether you want to keep it or cancel it. Please make the choice you would naturally make in this situation.',
   'You will go through four different versions of the subscription management process. The content and design may differ between versions.',
@@ -86,7 +86,7 @@ export const STUDY_INTRO_CLOSING =
 export const CONSENT_INTRO = 'Before you begin, please confirm whether you agree to take part in this study.';
 
 export const TRANSITION_BODY =
-  'You will now see another version of the subscription-management process. Please treat it as a new, independent scenario in which your Uswa-AI Pro subscription is active.';
+  'You will now see another version of the subscription-management process. Please treat it as a new, independent scenario in which your Pebble Pro subscription is active.';
 
 export const OPEN_ENDED_INFLUENCE_PROMPT =
   'Was there anything about the way the subscription options or information were presented that influenced your decision? Please explain.';
@@ -100,13 +100,13 @@ export const COMPLETION_BODY = [
 ];
 
 // --- Shared subscription facts (identical pre-treatment across T0/P1/P2/P3) ---
-export const PLAN_NAME = 'Uswa-AI Pro';
+export const PLAN_NAME = 'Pebble Pro';
 export const PLAN_PRICE = '$21.99';
 export const RENEWAL_DATE = 'October 5, 2026';
 
 export const TREATMENT_HEADING = 'Cancel your subscription';
 export const TREATMENT_INTRO =
-  "You're about to cancel your Uswa-AI Pro subscription. Review what happens, then confirm.";
+  "You're about to cancel your Pebble Pro subscription. Review what happens, then confirm.";
 
 export const CANCELLATION_CONSEQUENCES = [
   <>Your subscription stays active until the end of your current billing period — <strong>{RENEWAL_DATE}</strong>.</>,

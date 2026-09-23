@@ -41,7 +41,7 @@ export function OutcomeScreen() {
           Subscription cancelled
         </h1>
         <p style={{ fontSize: 14, lineHeight: 1.6, margin: '0 0 8px' }}>
-          Your Uswa-AI Pro subscription has been cancelled. You&rsquo;ll keep Pro access until{' '}
+          Your Pebble Pro subscription has been cancelled. You&rsquo;ll keep Pro access until{' '}
           <strong>{RENEWAL_DATE}</strong>, when your account moves to the free plan.
         </p>
         <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--muted)', margin: '0 0 24px' }}>
@@ -65,7 +65,7 @@ export function OutcomeScreen() {
           Discount activated
         </h1>
         <p style={{ fontSize: 14, lineHeight: 1.6, margin: '0 0 8px' }}>
-          Your Uswa-AI Pro subscription remains active at <strong>$10.99/month</strong> for the next two months.
+          Your Pebble Pro subscription remains active at <strong>$10.99/month</strong> for the next two months.
         </p>
         <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--muted)', margin: '0 0 24px' }}>
           After that, your subscription automatically returns to $21.99/month.

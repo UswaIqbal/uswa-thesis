@@ -1,6 +1,6 @@
-# Uswa-AI Study
+# Pebble Study
 
-React + Vite + TypeScript implementation of the Uswa-AI subscription-cancellation
+React + Vite + TypeScript implementation of the Pebble subscription-cancellation
 experiment. Within-subjects design, four interface conditions (**T0, P1, P2, P3**)
 in a randomized order, each followed by the same 13-item post-interface
 questionnaire (instrument **`q1-13-v2`**).
@@ -165,7 +165,7 @@ interface_runs**.
 cd uswa-ai-study
 git init
 git add .
-git commit -m "Uswa-AI study: revised flow, questionnaire, Supabase persistence"
+git commit -m "Pebble study: revised flow, questionnaire, Supabase persistence"
 git branch -M main
 git remote add origin https://github.com/USERNAME/REPOSITORY.git
 git push -u origin main
