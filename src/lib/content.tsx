@@ -68,7 +68,7 @@ export const FINAL_QUICK_2_OPTIONS: { value: FinalQuick2Answer; label: string }[
 export const FINAL_QUICK_HEADING = 'A few final quick questions';
 
 export const STUDY_INTRO_PARAGRAPHS = [
-  'You are subscribed to a hypothetical AI chatbot called Usswa-AI. You currently have the Uswa-AI Pro subscription.',
+  'You are subscribed to a hypothetical AI chatbot called Uswa-AI. You currently have the Uswa-AI Pro subscription. Imagine that over the past few months you have mostly used it for occasional, simple questions, and you haven\'t really made use of most of the Pro features. Lately you have started wondering whether the subscription is worth its monthly price for the way you actually use it.',
   'You are now reviewing your subscription and deciding whether you want to keep it or cancel it. Please make the choice you would naturally make in this situation.',
   'You will go through four different versions of the subscription management process. The content and design may differ between versions.',
 ];
