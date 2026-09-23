@@ -33,7 +33,7 @@ export function SubscriptionBillingScreen() {
           {PLAN_PRICE} <span style={{ fontFamily: 'var(--fb)', fontSize: 13, color: 'var(--muted)' }}>/ month</span>
         </div>
         <div style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 24 }}>Renews {RENEWAL_DATE}</div>
-        <div style={{ display: 'flex', gap: 12 }}>
+        <div className="btn-row">
           <Button variant="static">Manage plan</Button>
           <Button id="cancel_subscription" variant="outline" onClick={goToCancelScreen}>
             Cancel subscription

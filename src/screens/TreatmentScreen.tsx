@@ -109,7 +109,7 @@ export function TreatmentScreen() {
       </div>
 
       {currentCondition === 'P3' ? (
-        <div style={{ display: 'flex', gap: 12 }}>
+        <div className="btn-row">
           <Button id="keep_subscription" variant="filled-dominant" onClick={() => activateDecision('keep')}>
             Keep subscription
           </Button>
@@ -118,7 +118,7 @@ export function TreatmentScreen() {
           </Button>
         </div>
       ) : (
-        <div style={{ display: 'flex', gap: 12 }}>
+        <div className="btn-row">
           {currentCondition === 'P2' ? (
             <Button id="accept_discount" variant="outline" onClick={() => activateDecision('keep')}>
               Keep subscription for 50% off

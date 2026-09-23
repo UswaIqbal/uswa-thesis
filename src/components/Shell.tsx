@@ -5,16 +5,7 @@ const SHELL_WIDTH = 1120;
 
 function ShellFrame({ children }: { children: ReactNode }) {
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'var(--bg)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        padding: '40px 24px',
-      }}
-    >
+    <div className="shell-outer">
       <div
         style={{
           width: SHELL_WIDTH,
@@ -45,29 +36,19 @@ export function AppShell({
   return (
     <ShellFrame>
       <Header progressLabel={progressLabel} />
-      <div style={{ display: 'flex', minHeight: 560 }}>
-        <div
-          style={{
-            width: 220,
-            borderRight: '1px solid var(--border)',
-            background: 'var(--surface)',
-            padding: '24px 16px',
-            flexShrink: 0,
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+      <div className="app-shell-body">
+        <div className="app-shell-sidebar">
+          <div className="app-shell-nav">
             {NAV_ITEMS.map((item) => {
               const active = item === 'Subscription & Billing';
               return (
                 <div
                   key={item}
+                  className="app-shell-nav-item"
                   style={{
-                    fontSize: 14,
                     fontWeight: active ? 600 : 400,
                     color: active ? 'var(--dominant)' : 'var(--muted)',
                     background: active ? 'color-mix(in oklch, var(--dominant) 10%, var(--bg))' : 'transparent',
-                    padding: '10px 12px',
-                    borderRadius: 6,
                   }}
                 >
                   {item}
@@ -76,7 +57,7 @@ export function AppShell({
             })}
           </div>
         </div>
-        <div style={{ flex: 1, padding: '40px 48px' }}>{children}</div>
+        <div className="app-shell-content">{children}</div>
       </div>
     </ShellFrame>
   );
@@ -93,7 +74,7 @@ export function StudyShell({
   return (
     <ShellFrame>
       <Header progressLabel={progressLabel} />
-      <div style={{ display: 'flex', minHeight: 560, padding: '56px 64px', justifyContent: 'center' }}>
+      <div className="study-shell-body">
         <div style={{ maxWidth: 560, width: '100%' }}>{children}</div>
       </div>
     </ShellFrame>
